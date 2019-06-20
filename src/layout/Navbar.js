@@ -8,7 +8,7 @@ export class Navbar extends Component {
   };
 
   static propTypes = {
-    title: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired
   };
   render() {
@@ -16,7 +16,7 @@ export class Navbar extends Component {
       <nav className='navbar bg-primary'>
         <h1>
           <i className={this.props.icon} /> {this.props.title}
-          
+
         </h1>
       </nav>
     );
