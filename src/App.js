@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import Navbar from './layout/Navbar'
 import './App.css';
 
 class App extends Component {
   render() {
-    const name = 'john doe'
 
-
-
+    
     return (
       <div className='App'>
-        <h1>Hello {name.toUpperCase()}</h1>
+        <Navbar />
       </div>
     );
   }
