@@ -13,13 +13,13 @@ class App extends Component {
   ///  component loads github users on start, can be commented or removed
 
   async componentDidMount() {
-    this.setState({ loading: true });
-    const res = await axios.get(
-      `https://api.github.com/users?client_id=${
-        process.env.REACT_APP_GITHUB_CLIENT_ID
-      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
-    this.setState({ users: res.data, loading: false });
+    // this.setState({ loading: true });
+    // const res = await axios.get(
+    //   `https://api.github.com/users?client_id=${
+    //     process.env.REACT_APP_GITHUB_CLIENT_ID
+    //   }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    // );
+    // this.setState({ users: res.data, loading: false });
   }
 
   //Search github users
@@ -33,12 +33,14 @@ class App extends Component {
     this.setState({ users: res.data.items, loading: false });
   };
 
+  clearUsers = () => this.setState({ users: [], loading:false})
+
   render() {
     return (
       <div className='App'>
         <Navbar />
         <div className='container'>
-          <Search searchUsers={this.searchUsers} />
+          <Search searchUsers={this.searchUsers} clearUsers= {this.clearUsers} />
           <Users loading={this.state.loading} users={this.state.users} />
         </div>
       </div>
