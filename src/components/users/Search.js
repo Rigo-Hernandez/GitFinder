@@ -36,7 +36,7 @@ export class Search extends Component {
             className='btn btn-dark btn-block'
           />
         </form>
-        <button classname="btn btn-light btn-block" onClick={this.props.clearUsers}>Clear</button>
+        <button className="btn btn-light btn-block" onClick={this.props.clearUsers}>Clear</button>
       </div>
     );
   }
