@@ -8,6 +8,7 @@ Github finder is a way to find guthub users without any hassle
 
 In the project directory, you can run:
 
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
