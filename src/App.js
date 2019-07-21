@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import Navbar from './layout/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './layout/Alert';
@@ -32,7 +33,7 @@ class App extends Component {
         process.env.REACT_APP_GITHUB_CLIENT_ID
       }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
-    
+
     this.setState({ users: res.data.items, loading: false });
   };
   // clear users from state
@@ -47,19 +48,31 @@ class App extends Component {
   render() {
     const { users, loading } = this.state;
     return (
-      <div className='App'>
-        <Navbar />
-        <div className='container'>
-          <Alert alert={this.state.alert} />
-          <Search
-            searchUsers={this.searchUsers}
-            clearUsers={this.clearUsers}
-            showClear={users.length > 0 ? true : false}
-            setAlert={this.setAlert}
-          />
-          <Users loading={loading} users={users} />
+      <Router>
+        <div className='App'>
+          <Navbar />
+          <div className='container'>
+            <Alert alert={this.state.alert} />
+            <Switch>
+              <Route
+                exact
+                path='/'
+                render={props => (
+                  <Fragment>
+                    <Search
+                      searchUsers={this.searchUsers}
+                      clearUsers={this.clearUsers}
+                      showClear={users.length > 0 ? true : false}
+                      setAlert={this.setAlert}
+                    />
+                  </Fragment>
+                )}
+              />
+            </Switch>
+            <Users loading={loading} users={users} />
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
