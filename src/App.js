@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './layout/Alert';
+import About from './components/pages/About'
 import axios from 'axios';
 import './App.css';
 
@@ -65,11 +66,12 @@ class App extends Component {
                       showClear={users.length > 0 ? true : false}
                       setAlert={this.setAlert}
                     />
+                    <Users loading={loading} users={users} />
                   </Fragment>
                 )}
               />
+              <Route exact path ='/about' component = {About} />
             </Switch>
-            <Users loading={loading} users={users} />
           </div>
         </div>
       </Router>
