@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Gitfinder
 
-Github finder is a way to find guthub users without any hassle
+Github finder is a way to find github users without any hassle [Work in Progress]
 
 ## Available Scripts
 
