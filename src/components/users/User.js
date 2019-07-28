@@ -21,6 +21,7 @@ export class User extends Component {
       bio,
       blog,
       login,
+      location,
       html_url,
       followers,
       following,
@@ -40,7 +41,7 @@ export class User extends Component {
         </Link>
         Hireable:{' '}
         {hireable ? (
-          <i className='fas fa-check text-succes' />
+          <i className='fas fa-check text-success' />
         ) : (
           <i className='fas fa-times-circle text-danger' />
         )}
@@ -52,6 +53,8 @@ export class User extends Component {
               alt=''
               style={{ width: '150px' }}
             />
+            <h1>{name}</h1>
+            <p>Location: {location}</p>
           </div>
         </div>
       </Fragment>
