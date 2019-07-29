@@ -66,7 +66,6 @@ class App extends Component {
     this.setState({ repos: res.data, loading: false });
   };
 
-
   // clear users from state
   clearUsers = () => this.setState({ users: [], loading: false });
   // Set Alert
@@ -77,7 +76,7 @@ class App extends Component {
   };
 
   render() {
-    const { users, user, repos,  loading } = this.state;
+    const { users, user, repos, loading } = this.state;
     return (
       <Router>
         <div className='App'>
