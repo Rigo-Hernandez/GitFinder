@@ -18,7 +18,7 @@ const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
     blog,
     company,
     login,
-    location,
+    location, 
     html_url,
     followers,
     following,
