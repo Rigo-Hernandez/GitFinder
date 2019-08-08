@@ -29,6 +29,7 @@ const App = () => {
     setUser(res.data);
     SetLoading(false);
   };
+  // COde below will be refactores to use useEffect
 
   //Get Users Repo
   const getUserRepos = async username => {
