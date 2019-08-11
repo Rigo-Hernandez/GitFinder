@@ -11,25 +11,10 @@ import GithubState from './context/github/GithubState';
 import './App.css';
 
 const App = () => {
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, SetLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
-  //Get single github user
-  const getUser = async username => {
-    SetLoading(true);
-    const res = await axios.get(
-      `https://api.github.com/users/${username}?client_id=${
-        process.env.REACT_APP_GITHUB_CLIENT_ID
-      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
-
-    setUser(res.data);
-    SetLoading(false);
-  };
-  // COde below will be refactores to use useEffect
 
   //Get Users Repo
   const getUserRepos = async username => {
@@ -44,11 +29,7 @@ const App = () => {
     SetLoading(false);
   };
 
-  // clear users from state
-  const clearUsers = () => {
-    setUsers([]);
-    SetLoading(false);
-  };
+  
   // Set Alert
   const showAlert = (msg, type) => {
     setAlert({ msg, type });
@@ -69,11 +50,10 @@ const App = () => {
                 render={props => (
                   <Fragment>
                     <Search
-                      clearUsers={clearUsers}
-                      showClear={users.length > 0 ? true : false}
+
                       setAlert={showAlert}
                     />
-                    <Users loading={loading} users={users} />
+                    <Users />
                   </Fragment>
                 )}
               />
@@ -84,11 +64,8 @@ const App = () => {
                 render={props => (
                   <User
                     {...props}
-                    getUser={getUser}
                     getUserRepos={getUserRepos}
-                    user={user}
                     repos={repos}
-                    loading={loading}
                   />
                 )}
               />
@@ -98,5 +75,5 @@ const App = () => {
       </Router>
     </GithubState>
   );
-};
+;
 export default App;
