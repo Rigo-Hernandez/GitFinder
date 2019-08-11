@@ -74,6 +74,6 @@ const App = () => {
         </div>
       </Router>
     </GithubState>
-  );
-;
+);
+                };
 export default App;
