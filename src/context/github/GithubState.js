@@ -45,16 +45,15 @@ const GithubState = props => {
       }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
 
-
     dispatch({
       type: GET_USER,
       payload: res.data
-    })
-  }
+    });
+  };
   //Get Repo
 
   //Clear Users
-  const clearUsers = () => dispatch({type: CLEAR_USERS})
+  const clearUsers = () => dispatch({ type: CLEAR_USERS });
 
   //Set  Loading
 
