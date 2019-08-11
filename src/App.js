@@ -15,7 +15,6 @@ const App = () => {
   const [loading, SetLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
-
   //Get Users Repo
   const getUserRepos = async username => {
     SetLoading(true);
@@ -29,7 +28,6 @@ const App = () => {
     SetLoading(false);
   };
 
-  
   // Set Alert
   const showAlert = (msg, type) => {
     setAlert({ msg, type });
@@ -49,10 +47,7 @@ const App = () => {
                 path='/'
                 render={props => (
                   <Fragment>
-                    <Search
-
-                      setAlert={showAlert}
-                    />
+                    <Search setAlert={showAlert} />
                     <Users />
                   </Fragment>
                 )}
@@ -62,11 +57,7 @@ const App = () => {
                 exact
                 path='/user/:login'
                 render={props => (
-                  <User
-                    {...props}
-                    getUserRepos={getUserRepos}
-                    repos={repos}
-                  />
+                  <User {...props} getUserRepos={getUserRepos} repos={repos} />
                 )}
               />
             </Switch>
@@ -74,6 +65,6 @@ const App = () => {
         </div>
       </Router>
     </GithubState>
-);
-                };
+  );
+};
 export default App;
