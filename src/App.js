@@ -1,4 +1,4 @@
-import React, { Fragment} from 'react';
+import React, { Fragment } from 'react';
 import Navbar from './layout/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Users from './components/users/Users';
@@ -11,32 +11,31 @@ import AlertState from './context/alert/AlertState';
 import './App.css';
 
 const App = () => {
-
   return (
     <GithubState>
       <AlertState>
-      <Router>
-        <div className='App'>
-          <Navbar />
-          <div className='container'>
-            <Alert  />
-            <Switch>
-              <Route
-                exact
-                path='/'
-                render={props => (
-                  <Fragment>
-                    <Search />
-                    <Users />
-                  </Fragment>
-                )}
-              />
-              <Route exact path='/about' component={About} />
-              <Route exact path='/user/:login' component={User} />
-            </Switch>
+        <Router>
+          <div className='App'>
+            <Navbar />
+            <div className='container'>
+              <Alert />
+              <Switch>
+                <Route
+                  exact
+                  path='/'
+                  render={props => (
+                    <Fragment>
+                      <Search />
+                      <Users />
+                    </Fragment>
+                  )}
+                />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/user/:login' component={User} />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
       </AlertState>
     </GithubState>
   );
