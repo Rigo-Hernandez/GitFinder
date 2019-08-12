@@ -10,9 +10,7 @@ import GithubState from './context/github/GithubState';
 import './App.css';
 
 const App = () => {
-
   const [alert, setAlert] = useState(null);
-
 
   // Set Alert
   const showAlert = (msg, type) => {
@@ -39,11 +37,7 @@ const App = () => {
                 )}
               />
               <Route exact path='/about' component={About} />
-              <Route
-                exact
-                path='/user/:login'
-                component = {User}
-              />
+              <Route exact path='/user/:login' component={User} />
             </Switch>
           </div>
         </div>
